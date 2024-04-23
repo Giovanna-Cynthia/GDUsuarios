@@ -8,11 +8,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Scanner;
 
 import models.Usuario;
 
 public class GerenciadorUsuarios {
+	Scanner sc = new Scanner(System.in);
 
 	//Private => Variavel privada
 	//Static => Pode ser acessada por outras variaveis
@@ -87,7 +88,7 @@ public class GerenciadorUsuarios {
 	}
 	
 	public void reescreverArquivo(List<Usuario> usuarios) {
-		//
+		
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(NOME_ARQUIVO))){
 			for (Usuario usuario : usuarios) {
 				bw.write(usuario.toString());
@@ -108,7 +109,7 @@ public class GerenciadorUsuarios {
 		} else {
 			System.out.println("Lista de usuarios");
 			for (Usuario usuario : usuarios) {
-				System.out.println("ID: " + usuario.getId());
+				System.out.println("ID: " + usuario.getId() + ", Nome: " + usuario.getNome());
 				//System.out.println("ID: " + usuario.getId() + ", Nome: " + "" + usuario.getNome() + ", Senha: " + usuario.getSenha());
 			}
 		}
@@ -155,7 +156,7 @@ public class GerenciadorUsuarios {
 	
 	public void login(String login, String senha) {
 		List<Usuario> usuarios = lerUsuarios();
-		//
+		
 		boolean encontrado = false;
 		
 		//ira percorrer a lista de usuarios
@@ -175,6 +176,26 @@ public class GerenciadorUsuarios {
 		} else {
 			//se não for encontrado, recebera a seguinte mensagem e voltara para o menu 
 			System.out.println("Usuario Invalido");
+		}
+
+	}
+	public void alterarSenha(long id, String senhaAntiga, String novaSenha) {
+		List<Usuario> usuarios = lerUsuarios();
+		boolean encontrado = false;
+		
+		for (Usuario usuario : usuarios) {
+			if (usuario.getId() == id && usuario.getSenha().equals(senhaAntiga)) {
+				usuario.setSenha(novaSenha);
+				encontrado = true;
+				break;
+			}
+		}
+		
+		if (encontrado) {
+			reescreverArquivo(usuarios);
+			System.out.println("Senha alterada com sucesso!");
+		} else {
+			System.out.println("Usuário não encontrado ou senha antiga incorreta.");
 		}
 	}
 }

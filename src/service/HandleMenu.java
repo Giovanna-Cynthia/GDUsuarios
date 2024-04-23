@@ -78,7 +78,6 @@ public class HandleMenu {
 		return maxId + 1;
 	}
 	
-	
 	public void login() {
 		System.out.println("Digite seu usuario: ");
 		String login = sc.next();
@@ -87,4 +86,17 @@ public class HandleMenu {
 		
 		gs.login(login, senha);
 	}
+
+	
+	 public void alterarSenha( ) {
+		System.out.println("Digite o ID do usuario que deseja alterar a senha:");
+		long id = sc.nextInt();
+		System.out.println("Digite sua senha antiga: ");
+		String senhaAntiga = sc.next();
+		System.out.println("Digite sua nova senha: ");
+		String novaSenha = sc.next();
+		
+		gs.alterarSenha(id, senhaAntiga, novaSenha);
+	    }
+
 }

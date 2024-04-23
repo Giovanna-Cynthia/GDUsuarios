@@ -127,11 +127,17 @@ public class GerenciadorProdutos {
 		}
 	}
 	
+	public double somarPrecos() {
+	    List<Produto> produtos = lerProdutos();
+	    double total = 0.0;
+	    for (Produto produto : produtos) {
+	        total += produto.getPreco();
+	    }
+	    return total;
+	}
 	
-	
-	
-	
-	
-	
-	
+	public int contarProdutos() {
+	    List<Produto> produtos = lerProdutos();
+	    return produtos.size();
+	}	
 }

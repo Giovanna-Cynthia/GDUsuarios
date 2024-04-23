@@ -52,6 +52,6 @@ public class Produto {
 	//sobrescrever metodo
 		@Override
 		public String toString() {
-			return id + ";" + preco + ";" + quantidade;
+			 return id + ";" + nome + ";" + preco + ";" + quantidade;
 		}
 }

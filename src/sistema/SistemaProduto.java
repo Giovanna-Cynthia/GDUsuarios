@@ -2,61 +2,57 @@ package sistema;
 
 import java.util.Scanner;
 
-import service.HandleMenu;
 import service.HandleMenuProduct;
 
-public class Sistema {
+
+public class SistemaProduto {
 
 	public static void main(String[] args) {
 		// Scanner para capturar dados
 
 		Scanner sc = new Scanner(System.in);
-		HandleMenu hm = new HandleMenu();
+		HandleMenuProduct hmp = new HandleMenuProduct();
 		int opcao = 0;
-		
 	
-		
 		do {
 			// \n quebra uma linha, (joga o conteudo a seguir para linha debaixo)
-			System.out.println("1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Listar Especifico \n6 - Login Usuario \n7 - Alterar a senha \n9 - Sair\n");
+			System.out.println(
+					"1 - Criar \n2 - Editar \n3 - Deletar \n4 - Listar \n5 - Listar Especifico \n6 - Total dos Preços \n7 - Somar Produtos Cadastrados \n9 - Sair\n");
 
 			opcao = sc.nextInt();
 
 			switch (opcao) {
 			case 1: {
-				hm.criar();
+				hmp.criar();
 				break;
 			}
 			case 2: {
-				hm.editar();
+				hmp.editar();
 				break;
 			}
 			case 3: {
-				hm.deletar();
+				hmp.deletar();
 				break;
 			}
 			case 4: {
-				hm.listar();
+				hmp.listar();
 				break;
 			}
 			case 5: {
-				hm.listarEspecifico();
+				hmp.listarEspecifico();
 				break;
 			}
 			case 6: {
-				hm.login();
-				break;
+				hmp.somarPrecos();
 			}
 			case 7: {
-				hm.alterarSenha();
-				break;
+				hmp.totalProdutos();
 			}
 			default:
 				System.out.println("Opcao Invalida");
 				break;
 			}
 		} while (opcao != 9);
-		sc.close();
 	}
 
 }

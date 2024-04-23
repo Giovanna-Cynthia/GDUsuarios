@@ -17,18 +17,18 @@ public class HandleMenuProduct {
 	}
 	
 	public void criar() {
-		System.out.println("Digite o nome do Produto: ");
-		String nome = sc.next();
-		System.out.println("Digite o preço do Produto: ");
-		double preco = sc.nextDouble();
-		System.out.println("Digite a quantidade do Produto: ");
-		int quantidade = sc.nextInt();
-		
-		long id = getNextId();
-		
-		Produto p = new Produto(id, nome, preco, quantidade);
-		
-		gp.adicionarProduto(p);
+	    System.out.println("Digite o nome do Produto: ");
+	    String nome = sc.nextLine(); // Use nextLine() para ler a linha inteira
+	    System.out.println("Digite o preço do Produto: ");
+	    double preco = sc.nextDouble();
+	    System.out.println("Digite a quantidade do Produto: ");
+	    int quantidade = sc.nextInt();
+	    
+	    long id = getNextId();
+	    
+	    Produto p = new Produto(id, nome, preco, quantidade);
+	    
+	    gp.adicionarProduto(p);
 	}
 	
 	 public void editar() {
@@ -75,5 +75,16 @@ public class HandleMenuProduct {
 			}
 		}
 		return maxId + 1;
+	}
+	
+	public void somarPrecos() {
+		
+		double totalPrecos = gp.somarPrecos();
+		System.out.println("O total dos preços dos produtos somados é: " + totalPrecos);
+	}
+	
+	public void totalProdutos() {
+		int totalProdutos = gp.contarProdutos();
+		System.out.println("O número total de produtos é: " + totalProdutos);
 	}
 }
