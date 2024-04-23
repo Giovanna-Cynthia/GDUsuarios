@@ -1,0 +1,2 @@
+1;computador;7000.0;20
+2;celular;1000.0;15

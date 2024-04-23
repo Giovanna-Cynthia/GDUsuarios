@@ -35,7 +35,7 @@ public class GerenciadorProdutos {
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(NOME_ARQUIVO, true))) {
 			bw.write(produto.toString());
 			bw.newLine();
-			System.out.println("Usuario adicionado com sucesso!");
+			System.out.println("Produto adicionado com sucesso!");
 		} catch (IOException e) {
 			System.out.println("Ocorreu um erro ao escrever no arquivo: " + e.getMessage());
 		}

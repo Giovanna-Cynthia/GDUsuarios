@@ -44,9 +44,11 @@ public class SistemaProduto {
 			}
 			case 6: {
 				hmp.somarPrecos();
+				break;
 			}
 			case 7: {
 				hmp.totalProdutos();
+				break;
 			}
 			default:
 				System.out.println("Opcao Invalida");
